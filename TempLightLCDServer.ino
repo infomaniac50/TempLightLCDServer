@@ -444,6 +444,44 @@ void closeConnection()
 
 void printHelpMessage()
 {
+  FLASH_STRING(telnethelp,
+  "Welcome to Derek's Arduno Sensor Widget Server.\r\n"
+  "Command Syntax l|t|d|r|? <options>\r\n"
+  "\r\n"
+  "Display Light Levels\r\n"
+  "   Displays the light level from the last update sent\r\n"
+  "   from the sensor widget.\r\n"
+  "   Uses a TSL2561 luminosity sensor from Adafruit.com\r\n"
+  "   l\r\n"
+  "   Output\r\n"
+  "   <full> Full spectrum count from sensor ADC. No Units\r\n"
+  "   <ir> Infrared spectrum count from sensor ADC. No Units\r\n"
+  "   <visible> Full count minus Infrared count. No Units\r\n"
+  "   <lux> Approximate human eye response to visible spectrum. Lux\r\n"
+  "Display Temperature\r\n"
+  "   Displays the current temperature from the last update sent\r\n"
+  "   from the sensor widget.\r\n"
+  "   Uses a DS18B20 digital temperature sensor from Adafruit.com\r\n"
+  "   t\r\n"
+  "   Output\r\n"
+  "   <Celsius> The temperature in degrees Celsius\r\n"
+  "   <Fahrenheit> The temperature in degrees Fahrenheit\r\n"
+  "Display Backlight Debug Values\r\n"
+  "   Displays the actual pwm byte that was sent to analogWrite\r\n"
+  "   The backlight is the negative RGB LCD from Adafruit.com\r\n"
+  "   d\r\n"
+  "   Output\r\n"
+  "   R = <Red PWM Byte>\r\n"
+  "   G = <Green PWM Byte>\r\n"
+  "   B = <Blue PWM Byte>\r\n"
+  "Send Commands\r\n"
+  "   Sends commands to the sensor widget\r\n"
+  "   r <options>\r\n"
+  "Display Help\r\n"
+  "   Displays this help\r\n"
+  "   ?\r\n"  
+  );
+  
   FLASH_STRING(sensorhelp, 
   "Welcome to Derek's Arduino Sensor Widget.\r\n"
   "Command Syntax: b|p|c|s <options>\r\n"
@@ -473,23 +511,7 @@ void printHelpMessage()
   "      i: Integration Time {1,2,3} -> {13ms,101ms,402ms}\r\n"
   "      g: Gain {1,0} -> {16x,0x}\r\n"
   );
-
+  client << telnethelp;
+  client.println("");
   client << sensorhelp;
-}
-
-void printHelp2()
-{
-  client.println("\r\nExamples of supported commands:\r\n");
-  client.println("  dr	 -digital read:   returns state of digital pins 0 to 9");
-  client.println("  dr4	-digital read:   returns state of pin 4 only");
-  client.println("  ar	 -analog read:    returns all analog inputs");
-  client.println("  dw0=hi   -digital write:  turn pin 0 on  valid pins are 0 to 9");
-  client.println("  dw0=lo   -digital write:  turn pin 0 off valid pins are 0 to 9");
-  client.println("  aw3=222  -analog write:   set digital pin 3 to PWM value 222");
-  client.println("					allowed pins are 3,5,6,9");
-  client.println("					allowed PWM range 0 to 255");
-  client.println("  pm0=in   -pin mode:	 set pin 0 to INPUT  valid pins are 0 to 9");
-  client.println("  pm0=ou   -pin mode:	 set pin 0 to OUTPUT valid pins are 0 to 9");
-  client.println("  cl	 -close connection");
-  client.println("  ?	  -print this help message");
 }
