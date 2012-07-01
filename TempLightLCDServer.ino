@@ -148,7 +148,7 @@ void clientConnect()
   if (server.available() && !connectFlag) {
     connectFlag = 1;
     client = server.available();
-    client.println("\r\nDerek's Arduino Telnet Server");    
+    client.println("Derek's Arduino Sensor Widget Server");    
     printPasswordPrompt();
     
     timer.enable(passwordTimerId);
