@@ -436,7 +436,7 @@ void printHelpMessage()
 {
   FLASH_STRING(telnethelp,
   "Welcome to Derek's Arduno Sensor Widget Server.\r\n"
-  "Command Syntax l|t|d|r|? <options>\r\n"
+  "Command Syntax l|t|d|r|?|cl <options>\r\n"
   "\r\n"
   "Display Light Levels\r\n"
   "   Displays the light level from the last update sent\r\n"
@@ -469,7 +469,10 @@ void printHelpMessage()
   "   r <options>\r\n"
   "Display Help\r\n"
   "   Displays this help\r\n"
-  "   ?\r\n"  
+  "   ?\r\n"
+  "Disconnecting\r\n"
+  "   Disconnects from the client\r\n"
+  "   cl\r\n"
   );
   
   FLASH_STRING(sensorhelp, 
