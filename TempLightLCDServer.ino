@@ -22,6 +22,7 @@
 #include <Format.h>
 #include <Flash.h>
 #include <digitalWriteFast.h>
+#include "password.h"
 
 #define COMMAND_COUNT 5
 #define ARGUMENT_COUNT 3
