@@ -434,6 +434,14 @@ void closeConnection()
 
 void printHelpMessage()
 {
+  FLASH_STRING(helphelp,
+  "Welcome to Derek's Arduino Sensor Widget Server Help.\r\n"
+  "\r\n"
+  "This help has 2 pages. Enter ? followed by the page number.\r\n"
+  "Page 1: Sensor Widget Server Commands\r\n"
+  "Page 2: Sensor Widget Commands\r\n"
+  );
+  
   FLASH_STRING(telnethelp,
   "Welcome to Derek's Arduno Sensor Widget Server.\r\n"
   "Command Syntax l|t|d|r|?|cl <options>\r\n"
@@ -504,7 +512,16 @@ void printHelpMessage()
   "      i: Integration Time {1,2,3} -> {13ms,101ms,402ms}\r\n"
   "      g: Gain {1,0} -> {16x,0x}\r\n"
   );
-  client << telnethelp;
-  client.println("");
-  client << sensorhelp;
+  
+  char page = textBuff[1];
+  
+  switch(page)
+  {
+    case '1':  
+      client << telnethelp; break;
+    case '2':
+      client << sensorhelp; break;
+    default:
+      client << helphelp; break;
+  }
 }
