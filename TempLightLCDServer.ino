@@ -386,38 +386,28 @@ void printTemp()
   stemp_c = formatFloat(rxdata.temp_c, 1, &width);
   stemp_f = formatFloat(rxdata.temp_f, 1, &width);
   
-  client.print("\r\n");
   client.print(stemp_c);
-  client.print("C\r\n");
+  client.println('C');
   client.print(stemp_f);
-  client.print("F\r\n");   
+  client.println('F');   
 }
 
 void printLight()
 {
-  client.print("\r\n");
-  client.print(rxdata.ir);
-  client.print("\r\n");
-  client.print(rxdata.full);
-  client.print("\r\n");
-  client.print(rxdata.vis);
-  client.print("\r\n");
-  client.print(rxdata.lux);
-  client.print("\r\n");
+  client.println(rxdata.ir);
+  client.println(rxdata.full);
+  client.println(rxdata.vis);
+  client.println(rxdata.lux);
 }
 
 void printDebug()
 {
-  client.print("\r\n");
   client.print("R = ");
-  client.print(rxdata.r);
-  client.print("\r\n");
+  client.println(rxdata.r);
   client.print("G = ");
-  client.print(rxdata.g);
-  client.print("\r\n");
+  client.println(rxdata.g);
   client.print("B = ");
-  client.print(rxdata.b);
-  client.print("\r\n");
+  client.println(rxdata.b);
 
 }
 
