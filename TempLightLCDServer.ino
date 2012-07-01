@@ -337,6 +337,8 @@ long parseInt(int * index, char skipChar)
   }
   while( (c >= '0' && c <= '9') || c == skipChar );
   
+  *index += i;
+  
   if(isNegative)
     value = -value;
   return value;  
