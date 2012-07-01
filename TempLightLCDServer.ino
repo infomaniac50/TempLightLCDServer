@@ -103,8 +103,6 @@ void setup() {
     txdata.fields[i] = false;
   }
   
-  // Open serial communications and wait for port to open:
-  Serial.begin(9600);
   // start the Ethernet connection and the server:
   Ethernet.begin(mac, ip, dns, gateway, subnet);
   server.begin();
