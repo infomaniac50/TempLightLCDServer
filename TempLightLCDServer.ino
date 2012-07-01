@@ -412,10 +412,10 @@ void printDebug()
   client.print("R = ");
   client.print(rxdata.r);
   client.print("\r\n");
-  client.print(" G = ");
+  client.print("G = ");
   client.print(rxdata.g);
   client.print("\r\n");
-  client.print(" B = ");
+  client.print("B = ");
   client.print(rxdata.b);
   client.print("\r\n");
 
