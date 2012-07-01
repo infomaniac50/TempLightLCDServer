@@ -443,7 +443,7 @@ void printHelpMessage()
   );
   
   FLASH_STRING(telnethelp,
-  "Welcome to Derek's Arduno Sensor Widget Server.\r\n"
+  "Welcome to Derek's Arduino Sensor Widget Server.\r\n"
   "Command Syntax l|t|d|r|?|cl <options>\r\n"
   "\r\n"
   "Display Light Levels\r\n"
