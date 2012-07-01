@@ -149,7 +149,6 @@ void clientConnect()
     connectFlag = 1;
     client = server.available();
     client.println("\r\nDerek's Arduino Telnet Server");    
-//    client.println("? for help");
     printPasswordPrompt();
     
     timer.enable(passwordTimerId);
@@ -274,6 +273,8 @@ void parseReceivedPassword()
   
   if (valid_password)
   {
+    client.println("Pass!");
+    client.println("? for help");
     timer.disable(passwordTimerId);
     timer.enable(clientReadTimerId);
     try_again = 0;
@@ -281,6 +282,7 @@ void parseReceivedPassword()
   else
   {
     try_again++;
+    client.println("Fail!");
     if (try_again >= 3)
     {
       connectionStop();
